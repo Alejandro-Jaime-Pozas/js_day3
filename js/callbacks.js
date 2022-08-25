@@ -4,38 +4,38 @@ console.log('Hi this is callbacks')
     JavaScript Callbacks
 */
 
-function filter(anArr){
-    let output = [];
-    for (let element of anArr){
-        if (element % 2 === 0){ // this is the logic that determines if element is kept
-            output.push(element);
-        };
-    };
-    return output;
-};
+// function filter(anArr){
+//     let output = [];
+//     for (let element of anArr){
+//         if (element % 2 === 0){ // this is the logic that determines if element is kept
+//             output.push(element);
+//         };
+//     };
+//     return output;
+// };
 
-let numbers = [5, 10, 15, 20, 25, 30];
-console.log(filter(numbers));
+// let numbers = [5, 10, 15, 20, 25, 30];
+// console.log(filter(numbers));
 
 
-function filterWithCallback(anArr, callbackFn){
-    let output = [];
-    for (let element of anArr){
-        if (callbackFn(element)){ // this is the logic that determines if element is kept
-            output.push(element);
-        };
-    };
-    return output;
+// function filterWithCallback(anArr, callbackFn){
+//     let output = [];
+//     for (let element of anArr){
+//         if (callbackFn(element)){ // this is the logic that determines if element is kept
+//             output.push(element);
+//         };
+//     };
+//     return output;
 
-};
+// };
 
-function isOdd(num){
-    return num % 2 === 1;
-};
+// function isOdd(element){
+//     return element % 2 === 1;
+// };
 
-console.log(filterWithCallback(numbers, isOdd)); // here we are inserting isOdd fn in place of the if stmt...
+// console.log(filterWithCallback(numbers, isOdd)); // here we are inserting isOdd fn in place of the if stmt...
 
-console.log(filterWithCallback(numbers, num => num >= 20)); // this to show you can put a fn as input and that fn will get called in 
+// console.log(filterWithCallback(numbers, num => num >= 20)); // this to show you can put a fn as input and that fn will get called in 
 
 // isOdd and the arrow fns are considered callback fns (bc they are passed into another fn as an arg to be executed later)
 // filterWithCallback is considered a higher-order fn (bc it accepts a fn as an arg)
@@ -45,21 +45,21 @@ console.log(filterWithCallback(numbers, num => num >= 20)); // this to show you 
 
 // Async example
 
-function first(){
-    console.log('First started...')
-    setTimeout(() => console.log('First'), 2000);
-};
+// function first(){
+//     console.log('First started...')
+//     setTimeout(() => console.log('First'), 500);
+// };
 
-function second(){
-    console.log('Second');
-};
+// function second(){
+//     console.log('Second');
+// };
 
 // first();
 // second(); // this prints first, and first prints later bc that's how JS works, it stacks calls to top. python does not, it executes line by line in order
 
 
 
-// -------------------
+// // -------------------
 // console.log(myName);
 // var myName = 'Brian';
 // console.log(myName); 
@@ -75,7 +75,7 @@ function second(){
 //     setTimeout(() => {
 //         console.log('Finished downloading')
 //         return songName
-//     }, 3000)
+//     }, 500)
 // };
 
 // function playSong(songName){
@@ -111,7 +111,7 @@ downloadSong('Let It Be', 500, playSong);
 
 
 // send to a friend
-downloadSong('Let It Be', 500, song => console.log(`Sending ${song} to friend`))
+downloadSong('Let It Be', 500, song => console.log(`Sending ${song} to friend`)) // this works bc 3rd arg is an arrow fn, input as the callback, and this arrow fn takes in an arg 'song', equal to songName in downloadSong. Disregards the playSong fn entirely
 
 
 
@@ -136,4 +136,4 @@ downloadSong2( // calling the fn...
     songChoice,
     s => console.log(`${s} has successfully downloaded and is now playing.`),
     s => console.log(`${s} is not a valid song choice.`),
-)
+);

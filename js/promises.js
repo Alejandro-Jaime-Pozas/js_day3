@@ -14,26 +14,26 @@ console.log('now in promises')
 
 
 
-function downloadSong(songName){
-    console.log(`Searching for ${songName} in our database...`)
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (songName.length > 4){
-                resolve(`${songName}.mp4`)
-            } else {
-                reject(`${songName} not in database`)
-            }
-        }, 1000)
-    })
-}
+// function downloadSong(songName){
+//     console.log(`Searching for ${songName} in our database...`)
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             if (songName.length > 4){
+//                 resolve(`${songName}.mp4`)
+//             } else {
+//                 reject(`${songName} not in database`)
+//             }
+//         }, 1000)
+//     })
+// }
 
 
-let mySong = downloadSong('abc');
-console.log(mySong)
+// let mySong = downloadSong('abc');
+// console.log(mySong)
 
-mySong // you can separate lines when you do variable.fn...since js doesnt acct for lines
-    .then((val) => {console.log(val)}) // you can chain more 'then's with .then after closing () of last .then
-    .catch(err => console.warn(err)) 
+// mySong // you can separate lines when you do variable.fn...since js doesnt acct for lines
+//     .then((val) => {console.log(val)}) // you can chain more 'then's with .then after closing () of last .then
+//     .catch(err => console.warn(err)) 
 
 // most promises you work with existing fns, not creating your own
 
@@ -93,4 +93,6 @@ function getUsersTotalFromUserId(userId){
         .then(order => getOrderTotal(order))
         .then(total => console.log(`User #${userId} has a total of $${total}`))
         .catch(err => console.warn(err)) // you only need one catch for the whole .then chain
-}
+};
+
+console.log(getUsersTotalFromUserId(1000));
